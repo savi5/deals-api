@@ -29,7 +29,7 @@ Things you may want to cover:
       4) Deals_user_mapping ( to validate and maintain deals applicable to specific user)
 
 * POST MAN  API calls, 
-  Deals API is in file path : app/controller/api/v1/deals.rb
+   (Deals API is in file path : app/controller/api/v1/deals.rb)
         * CREATE DEALS : 
           API : POST localhost:3000/api/v1/deal/item/1?item_id=1&item_qty=2&start_time=2021-12-12 11:00:00&end_time=2021-12-19 14:00:00&name=testdeal5&offer_price=10000
          RESPONSE :

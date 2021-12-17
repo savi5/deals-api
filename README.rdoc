@@ -18,14 +18,77 @@ Things you may want to cover:
 
 
 * Database initialization
+         rake db:migrate
+         rake db:seed
 
-* How to run the test suite
+* POST MAN  API calls, 
+        * CREATE DEALS : 
+          API : POST localhost:3000/api/v1/deal/item/1?item_id=1&item_qty=2&start_time=2021-12-12 11:00:00&end_time=2021-12-19 14:00:00&name=testdeal5&offer_price=10000
+         RESPONSE :
+         {
+           "code": true,
+           "message": "Deal created successfully",
+           "deal_details": {
+               "id": 8,
+               "deals_name": "testdeal5",
+               "product_id": 1,
+               "item_qty": 2,
+               "start_time": "2021-12-12T11:00:00.000Z",
+               "end_time": "2021-12-19T14:00:00.000Z",
+               "offer_price": 10000,
+               "is_active": true
+           }
+       }
 
-* Services (job queues, cache servers, search engines, etc.)
+        * END DEAL :(disable deal by updating is_active = false in deals table)
+         API : POST localhost:3000/api/v1/deal/6/end_deal?deal_id=6
+         RESPONSE :
+         {
+           "code": true,
+           "message": "Deal disabled successfully",
+           "deal_details": {
+               "id": 6,
+               "deals_name": "testdeal5",
+               "product_id": 1,
+               "item_qty": 2,
+               "start_time": "2021-12-12T11:00:00.000Z",
+               "end_time": "2021-12-12T14:00:00.000Z",
+               "offer_price": 10000,
+               "is_active": false
+           }
+       }
+       
+       * UPDATE DEAL
+          API : PUT localhost:3000/api/v1/deal/9?end_time=2021-12-18 00:00:00&deal_id=9
+           
+       RESPONSE :
+      {
+           "code": true,
+           "message": "Deal details updated successfully",
+           "deal_details": {
+               "id": 9,
+               "deals_name": "testdeal5",
+               "product_id": 1,
+               "item_qty": 2,
+               "start_time": "2021-12-12T11:00:00.000Z",
+               "end_time": "2021-12-18T00:00:00.000Z",
+               "offer_price": 10000,
+               "is_active": true
+           }
+       }
+       
+       * APPLY DEAL 
+            API : POST localhost:3000/api/v1/deal/9/apply_deal?user_id=1&deal_id=9
+         RESPONSE :
+       {
+           "code": true,
+           "message": "Deal applied successfully",
+           "deal_details": {
+               "user_id": 1,
+               "deal_name": "testdeal5"
+           }
+       }
 
-* Deployment instructions
-
-* ...
 
 
 Please feel free to use a different markup language if you do not plan to run

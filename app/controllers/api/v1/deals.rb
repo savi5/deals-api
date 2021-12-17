@@ -1,7 +1,7 @@
 module API::V1 
    class Deals < Grape::API
        resource :deal do
-           desc 'Create deal'
+           desc 'Create deal for given product'
             params do
                 requires :item_id,type: Integer,desc: 'Deal to create for item_id'
                 requires :name,type: String,desc: 'Name of deal'
@@ -61,7 +61,8 @@ module API::V1
                     return {"code"=>false,msg:"Something went wrong",error_msg:e.message}
                  end
             end
-
+            
+            desc 'Apply deal to the user'
             params do
                 requires :deal_id,type: Integer,desc: 'id of deal'
                 requires :user_id,type: Integer, desc: 'id of user'

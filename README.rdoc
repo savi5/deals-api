@@ -20,6 +20,11 @@ Things you may want to cover:
 * Database initialization
          rake db:migrate
          rake db:seed
+* Entity design
+      1) Deals table(to create and update deal details)
+      2) User table(to create and update user related details)
+      3) Product table(to maintain Inventory)
+      4) Deals_user_mapping ( to validate and maintain deals applicable to specific user)
 
 * POST MAN  API calls, 
         * CREATE DEALS : 
